@@ -1,0 +1,14 @@
+.submitbtn{
+    justify-content: center;
+    padding: 15px 0px 0px 0px;
+}
+
+.otpform{
+    justify-content: center;
+    margin-right: 20px;
+}
+
+.otp-input{
+    align-self: center;
+    margin-right: 20px;
+}
