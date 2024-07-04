@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../css/Navbar.css'; // Ensure you have your custom CSS file linked
+import '../css/Navbar.css'; // Import the custom CSS file
 
 function Navbar() {
   return (
@@ -14,7 +14,7 @@ function Navbar() {
         type="button"
         data-toggle="collapse"
         data-target="#navbarNav"
-        aria-controls="navbarNav"
+        aria-controls="navbarNav justify-content-center"
         aria-expanded="false"
         aria-label="Toggle navigation"
       >
@@ -38,7 +38,7 @@ function Navbar() {
               className="nav-link text-light"
               activeClassName="active"
             >
-              About Us
+              AboutUs
             </NavLink>
           </li>
           <li className="nav-item">

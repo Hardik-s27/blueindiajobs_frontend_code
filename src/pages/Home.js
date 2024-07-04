@@ -182,7 +182,7 @@ const Home = () => {
 
   return (
     <>
-      <Navbar />
+      <div><Navbar /></div>
       <div className="main-container position-relative">
         <SwiperComponent />
         <div className="container position-relative text-center text-white" style={{ zIndex: 2 }}>
