@@ -3,7 +3,8 @@
 }
 
 .nav-link {
-  color: #ffffff !important; /* Ensure the text is always white */
+  color: #ffffff !important;
+  text-align: center;
 }
 
 .nav-link.active {
