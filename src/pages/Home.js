@@ -13,6 +13,7 @@ import '../css/Home.css'; // Ensure this path is correct
 import 'bootstrap/dist/css/bootstrap.min.css'; // Bootstrap CSS
 import { Modal } from 'react-bootstrap';
 import { TfiClose } from 'react-icons/tfi';
+import Footer from '../components/Footer';
 
 const Home = () => {
   const navigate = useNavigate();
@@ -162,7 +163,7 @@ const Home = () => {
         Swal.fire({
           width: '450px',
           icon: 'error',
-          title: 'Failed to log in!',
+          title: 'Invalid User!',
           text: error.response.data.message, 
           showConfirmButton: true,
         });
@@ -188,7 +189,7 @@ const Home = () => {
         <div className="container position-relative text-center text-white" style={{ zIndex: 2 }}>
           <h1 className="display-4">Welcome to BlueIndia Jobs!</h1>
           <div className="d-flex justify-content-center">
-            <button className="btn btn-primary btn-lg font-weight-bold" onClick={isLoggedIn ? () => navigate('/Dashboard') : handleModalOpen}>
+            <button className="btn btn-primary btn-lg font-weight-bold color-primary" onClick={isLoggedIn ? () => navigate('/Dashboard') : handleModalOpen}>
               {isLoggedIn ? 'Go to Dashboard' : 'Join Us Now'}
             </button>
           </div>
@@ -204,16 +205,17 @@ const Home = () => {
           <h5 className="modal-title">Login Or SignUp Here</h5>
           <TfiClose onClick={handleModalClose} style={{ fontSize: "20px", color: "black", cursor: "pointer" }} />
         </Modal.Header>
-        <Modal.Body className="d-flex justify-content-around">
-          <button className="btn btn-secondary btn-lg" onClick={handleSignUpOpen}>
+        <Modal.Body className="justify-content-around p-3">
+          <button className="btn btn-primary w-50 m-2 btn-lg" onClick={handleSignUpOpen}>
             Signup
           </button>
-          <button className="btn btn-secondary btn-lg" onClick={handleLoginOpen}>
+          <button className="btn btn-primary w-50 m-2 btn-lg" onClick={handleLoginOpen}>
             Login
           </button>
         </Modal.Body>
       </Modal>
       <div id="recaptcha-container"></div>
+      <Footer />
     </>
   );
 };

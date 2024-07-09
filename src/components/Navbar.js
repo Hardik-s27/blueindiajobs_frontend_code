@@ -5,52 +5,34 @@ import '../css/Navbar.css'; // Import the custom CSS file
 
 function Navbar() {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-primary">
-      <div className="navbar-brand text-light">
-        BlueIndia Jobs
-      </div>
-      <button
+    <nav className="navbar navbar-expand-lg navbar-dark shadow-5-strong">
+      <div className="container-fluid">
+        <NavLink className="navbar-brand" to="/">BlueIndia Jobs</NavLink>
+
+        <button
         className="navbar-toggler"
         type="button"
         data-toggle="collapse"
         data-target="#navbarNav"
-        aria-controls="navbarNav justify-content-center"
+        aria-controls="navbarNav"
         aria-expanded="false"
         aria-label="Toggle navigation"
       >
         <span className="navbar-toggler-icon"></span>
       </button>
-      <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
-        <ul className="navbar-nav">
-          <li className="nav-item">
-            <NavLink
-              exact
-              to="/"
-              className="nav-link text-light"
-              activeClassName="active"
-            >
-              Home
-            </NavLink>
-          </li>
-          <li className="nav-item">
-            <NavLink
-              to="/AboutUs"
-              className="nav-link text-light"
-              activeClassName="active"
-            >
-              AboutUs
-            </NavLink>
-          </li>
-          <li className="nav-item">
-            <NavLink
-              to="/Pricing"
-              className="nav-link text-light"
-              activeClassName="active"
-            >
-              Pricing
-            </NavLink>
-          </li>
-        </ul>
+        <div className="collapse navbar-collapse" id="navbarNav">
+          <ul className="navbar-nav me-auto mb-2 mb-lg-0 text-center">
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/">Home</NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/AboutUs">About Us</NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/Pricing">Pricing</NavLink>
+            </li>
+          </ul>
+        </div>
       </div>
     </nav>
   );

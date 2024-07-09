@@ -5,12 +5,19 @@ import Modal from 'react-bootstrap/Modal';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { TfiClose } from 'react-icons/tfi';
+import { Link } from 'react-router-dom';
 
-const LoginModal = ({ show, onHide, onSubmit }) => {
+const LoginModal = ({ show, onHide, onSubmit, signUpShow }) => {
   const loginValidationSchema = Yup.object().shape({
     email: Yup.string().required('Email or Phone number is required'),
     password: Yup.string().required('Password is required'),
   });
+
+  const handleSignupClick = (e) => {
+    e.preventDefault();
+    onHide(); // Hide the login modal
+    signUpShow(); // Show the sign-up modal
+  };
 
   return (
     <Modal show={show} onHide={onHide} centered backdrop="static" keyboard={true}>
@@ -29,20 +36,25 @@ const LoginModal = ({ show, onHide, onSubmit }) => {
         >
           {({ isSubmitting }) => (
             <Form>
-              <div className="form-group">
-                <label htmlFor="email">Email</label>
-                <Field type="email" name="email" className="form-control" />
+              <div class="form-floating mb-3">
+                <Field type="email" name="email"  class="form-control border border-dark-subtle" id="floatingInput" placeholder="name@example.com" />
+                <label for="floatingInput">Email Address</label>
                 <ErrorMessage name="email" component="div" className="text-danger" />
               </div>
-              <div className="form-group">
-                <label htmlFor="password">Password</label>
-                <Field type="password" name="password" className="form-control" />
+
+              <div class="form-floating mb-3">
+                <Field type="password" name="password"  class="form-control border border-dark-subtle" id="floatingInput" placeholder="abc@123" />
+                <label for="floatingInput">Password</label>
                 <ErrorMessage name="password" component="div" className="text-danger" />
               </div>
+
               <div className='submitbtn d-flex'>
-              <button type="submit" className="btn btn-secondary btn-block w-50" disabled={isSubmitting}>
-                {isSubmitting ? 'Logging in...' : 'Login'}
-              </button>
+                <button type="submit" className="btn btn-primary btn-block w-50" disabled={isSubmitting}>
+                  {isSubmitting ? 'Logging in...' : 'Login'}
+                </button>
+              </div>
+              <div className='d-flex justify-content-center pt-2'>
+                <Link to="#" onClick={handleSignupClick}>Signup Here...</Link>
               </div>
             </Form>
           )}
